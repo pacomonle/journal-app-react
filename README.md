@@ -6,6 +6,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## instalar react router dom
 # npm i react-router-dom
 
+## instalar react-redux y redux
+# npm install react-redux redux
+patron de trabajo
+1. crear carpeta reducers - crear reducer
+2. crear store -> import de redux createStore
+3. a nivel app.js -> import provider de react-redux
+4. crear carpeta action -> para poder hacer dispatch de las actions
+   hook useDispatch
+5. habilitar react-dev-tools -> en la store  para ver la redux dev tools-> window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+6. middleware -> thunk - conexion con la api
+npm install --save redux-thunk
+
+## validar formularios
+# npm i validator
+
+## libreria alertas
+# npm install sweetalert2
+
+## instalar firebase
+# npm install firebase
+
+
 ## Available Scripts
 
 In the project directory, you can run:
