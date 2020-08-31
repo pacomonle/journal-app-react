@@ -13,8 +13,8 @@ const handleInputChange = ({target}) => {
     })
 }
 
-const reset = () => {
-    setformValue(initialState)
+const reset = (newFormState = initialState) => {
+    setformValue(newFormState)
 }
 
 return [formValue, reset,  handleInputChange]

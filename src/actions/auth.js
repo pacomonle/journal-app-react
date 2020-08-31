@@ -2,6 +2,7 @@ import { types } from "../types/types"
 import { auth, googleAuthProvider } from '../firebase/firebaseConfig'
 import { finishLoading, startLoading } from "./ui";
 import Swal from "sweetalert2";
+import { noteLogout } from "./notes";
 
 // peticion asincrona que devuelve un callback
 export const startLoginWithEmailAndPassword = (email, password) =>{
@@ -9,7 +10,7 @@ export const startLoginWithEmailAndPassword = (email, password) =>{
 return ((dispatch) =>{
    dispatch( startLoading() );
             
-        auth.signInWithEmailAndPassword( email, password )
+      return  auth.signInWithEmailAndPassword( email, password )
             .then( ({ user }) => {
                 dispatch(login( user.uid, user.displayName, user.email ));
 
@@ -29,7 +30,7 @@ export const startRegisterWithEmailAndPassword = (email, password, name) =>{
     return ((dispatch) =>{
         dispatch( startLoading() );
 
-        auth.createUserWithEmailAndPassword( email, password )
+    return  auth.createUserWithEmailAndPassword( email, password )
         .then( async({ user }) => {
             // actualizar el name al profile del user
             await user.updateProfile({ displayName: name });
@@ -53,7 +54,7 @@ export const startLoginWithGoogle = () => {
 
 return ((dispatch)=>{
 
-  auth.signInWithPopup(googleAuthProvider)
+ return auth.signInWithPopup(googleAuthProvider)
   .then(({user}) =>{
       console.log(user)
       dispatch(
@@ -79,6 +80,7 @@ export const startLogout = () => {
         await auth.signOut();
 
         dispatch( logout() );
+        dispatch( noteLogout() );
     }
 }
 

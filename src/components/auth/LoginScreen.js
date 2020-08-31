@@ -12,8 +12,8 @@ const dispatch = useDispatch()
 const {msgError, loading} = useSelector(state => state.ui)
 
 const [formValue, reset,  handleInputChange] = useForm({
-    email: '',
-    password: ''
+    email: 'emai@email.com',
+    password: '123456'
 })
 
 const {email, password} = formValue
@@ -23,8 +23,9 @@ const handleInputSubmit = (e) =>{
     // console.log(email, password)
    //  dispatch(Login(12345, 'FRancisco'))
    console.log('Formulario correcto')
+    
    if(isFormValid()){
-    dispatch(startLoginWithEmailAndPassword(email, password))
+      dispatch(startLoginWithEmailAndPassword(email, password))
     reset()
    }  
 }
@@ -57,7 +58,9 @@ const isFormValid = () => {
         <>
         <h3 className="auth__title">Login</h3>
 
-        <form onSubmit={handleInputSubmit}>
+        <form 
+        className="animate__animated animate__fadeIn animate__faster"
+        onSubmit={handleInputSubmit}>
         {
             msgError &&
             (

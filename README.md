@@ -24,9 +24,22 @@ npm install --save redux-thunk
 ## libreria alertas
 # npm install sweetalert2
 
+## libreria Moment -> formatear fechas
+# npm install moment --save  
+
 ## instalar firebase
 # npm install firebase
 
+## api subida archivos: cloudinary
+API URLs
+react-journal-app -> creada en cloudinary
+Image upload: https://api.cloudinary.com/v1_1/nolitoxd/image/upload
+Sprite generation: https://api.cloudinary.com/v1_1/nolitoxd/image/sprite
+# paa pruebas npm install cloudinary --save-dev
+# npm install cloudinary-react --save
+
+## libreria para mockear el store
+# npm install redux-mock-store --save-dev
 
 ## Available Scripts
 

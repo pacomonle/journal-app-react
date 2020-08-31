@@ -12,6 +12,7 @@ import { auth } from '../firebase/firebaseConfig';
 import { login } from '../actions/auth';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { startLoadingNotes } from '../actions/notes';
 
 export const AppRouter = () => {
 
@@ -24,11 +25,13 @@ export const AppRouter = () => {
 
     useEffect(() => {
         
-        auth.onAuthStateChanged( (user) => {
+        auth.onAuthStateChanged( async(user) => {
 
             if ( user?.uid ) {
                 dispatch( login( user.uid, user.displayName, user.email ) );
                 setIsLoggedIn( true );
+              
+                dispatch(startLoadingNotes(user.uid))
             } else {
                 setIsLoggedIn( false );
             }
